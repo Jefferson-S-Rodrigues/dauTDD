@@ -19,14 +19,14 @@ class HomePageTest(TestCase):
 		self.assertEquals(Item.objects.count(), 0)
 
 	def test_can_save_a_POST_request(self):
-		self.client.post('/', data={'item_text': 'A new list item'})
+		self.client.post('/', data={'item_text': 'A new list item', 'prioridade': 'B'})
 
 		self.assertEquals(Item.objects.count(), 1)
 		new_item = Item.objects.first()
 		self.assertEquals(new_item.text, 'A new list item')
 
 	def test_redirects_after_POST(self):
-		response = self.client.post('/', data={'item_text': 'A new list item'})
+		response = self.client.post('/', data={'item_text': 'A new list item', 'prioridade': 'B'})
 
 		self.assertEquals(response.status_code, 302)
 		self.assertEquals(response['location'], '/')
