@@ -2,6 +2,6 @@
 
 ##### Jefferson Salomão Rodrigues
 
-O Trabalho foi desenvolvido no arquivo **superlista/functional_tests/tests.py**
+O Trabalho foi desenvolvido no arquivo **superlista/trabalho_tdd/tests.py**
 
 Na função: **test_trabalho_tdd**

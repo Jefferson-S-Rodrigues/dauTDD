@@ -25,12 +25,13 @@
                 </div>
 
                 {% csrf_token %}
+                <label for="prioridade" class="form-label">Prioridade:</label>
                 <div class="form-check">
                     <input class="form-check-input" type="radio" id="baixa" name="prioridade" value="B" checked><label class="form-check-label"
-                                                                                                                       for="baixa">Low</label><br>
-                    <input class="form-check-input" type="radio" id="media" name="prioridade" value="M"><label class="form-check-label" for="media">Average</label><br>
+                                                                                                                       for="baixa">Baixa</label><br>
+                    <input class="form-check-input" type="radio" id="media" name="prioridade" value="M"><label class="form-check-label" for="media">Média</label><br>
                     <input class="form-check-input" type="radio" id="alta" name="prioridade" value="A"><label class="form-check-label"
-                                                                                                              for="alta">High</label>
+                                                                                                              for="alta">Alta</label>
                 </div>
             </form>
             <br><br>
