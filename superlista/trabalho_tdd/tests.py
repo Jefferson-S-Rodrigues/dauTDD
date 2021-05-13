@@ -73,15 +73,24 @@ class NewVsitorTest(LiveServerTestCase):
         # e assinala prioridade baixa pois ela ainda tem cola suficiente
         # por algum tempo
 
+        inputbox = self.browser.find_element_by_id('id_new_item')
+        inputbox.send_keys('Comprar cola instantânea')
+
+        ckbaixa = self.browser.find_element_by_id('baixa')
+        ckbaixa.click()
+
+        inputbox.send_keys(Keys.ENTER)
+
         # A página é atualizada novamente e agora mostra os dois
         # itens em sua lista e as respectivas prioridades
+
+        self.wait_for_row_in_list_table('1 Comprar anzol High')
+        self.wait_for_row_in_list_table('2 Comprar cola instantânea Low')
 
         # Edith se pergunta se o site lembrará de sua lista. Então
         # ela nota que o site gerou um URL único para ela -- há um
         # pequeno texto explicativo para isso.
 
         # Ela acessa essa URL -- sua lista de tarefas continua lá.
-
-        self.fail('Testes funcionaram!')
 
         ################################# FIM ####################################
