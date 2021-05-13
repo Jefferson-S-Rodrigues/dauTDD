@@ -141,3 +141,6 @@ cython_debug/
 /superlista/lists/migrations/
 
 .idea/
+/superlista/limpar.sh
+/superlista/db.sqlite3
+/superlista/geckodriver.log
