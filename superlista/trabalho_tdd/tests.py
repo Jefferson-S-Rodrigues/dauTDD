@@ -47,6 +47,10 @@ class NewVsitorTest(LiveServerTestCase):
         # Ela percebe que o título da página e o cabeçalho mencionam
         # listas de tarefas com prioridade (priority to-do)
 
+        self.assertIn('priority to-do', self.browser.title)
+        header_text = self.browser.find_element_by_tag_name('h1').text
+        self.assertIn('priority to-do', header_text)
+
         # Ela é convidada a inserir um item de tarefa e a prioridade da
         # mesma imediatamente
 
