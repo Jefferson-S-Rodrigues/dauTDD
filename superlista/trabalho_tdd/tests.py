@@ -31,7 +31,7 @@ class NewVsitorTest(LiveServerTestCase):
 
     def test_trabalho_tdd(self):
 
-        self.browser.get('localhost:8000')
+        self.browser.get(self.live_server_url)
 
         # Edith ouviu falar que agora a aplicação online de lista de tarefas
         # aceita definir prioridades nas tarefas do tipo baixa, média e alta

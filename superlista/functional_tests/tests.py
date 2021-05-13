@@ -33,8 +33,8 @@ class NewVsitorTest(LiveServerTestCase):
         # Edith ouviu falar de uma nova aplicação online interessante
         # para lista de tarefas. Ela decide verificar a homepage
 
-        #self.browser.get(self.live_server_url)
-        self.browser.get('localhost:8000')
+        self.browser.get(self.live_server_url)
+        #self.browser.get('localhost:8000')
 
         # Ela percebe que o título da página e o cabeçalho mencionam
         # listas de tarefas (to-do)
