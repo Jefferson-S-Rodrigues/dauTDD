@@ -26,10 +26,10 @@ class HomePageTest(TestCase):
 		self.assertEquals(new_item.text, 'A new list item')
 
 	def test_redirects_after_POST(self):
-		response = self.client.post('/', data={'item_text': 'A new list item', 'prioridade': 'B'})
+		response = self.client.post('/ListaTeste', data={'item_text': 'A new list item', 'prioridade': 'B'})
 
 		self.assertEquals(response.status_code, 302)
-		self.assertEquals(response['location'], '/')
+		self.assertEquals(response['location'], '/ListaTeste')
 
 	def test_displays_all_list_itens(self):
 		Item.objects.create(text='itemey 1')

@@ -1,6 +1,8 @@
 from django.db import models
 
 class Item(models.Model):
+	idlista = models.TextField()
+
 	text = models.TextField(default='')
 
 	BAIXA = 'B'

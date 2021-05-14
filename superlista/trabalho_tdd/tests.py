@@ -91,6 +91,16 @@ class NewVsitorTest(LiveServerTestCase):
         # ela nota que o site gerou um URL único para ela -- há um
         # pequeno texto explicativo para isso.
 
+        edith_url = self.browser.current_url
+        edith_id = edith_url.split('/')[-1]
+
         # Ela acessa essa URL -- sua lista de tarefas continua lá.
+
+        self.browser.quit()
+        self.browser = webdriver.Firefox()
+        self.browser.get('/'.join([self.live_server_url, edith_id]))
+
+        self.wait_for_row_in_list_table('1 Comprar anzol High')
+        self.wait_for_row_in_list_table('2 Comprar cola instantânea Low')
 
         ################################# FIM ####################################
