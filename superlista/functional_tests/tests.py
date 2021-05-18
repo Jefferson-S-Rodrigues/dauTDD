@@ -39,16 +39,16 @@ class NewVsitorTest(LiveServerTestCase):
         # Ela percebe que o título da página e o cabeçalho mencionam
         # listas de tarefas (to-do)
 
-        self.assertIn('To-Do', self.browser.title)
+        self.assertIn('Lista de Tarefas', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('To-Do', header_text)
+        self.assertIn('Lista de Tarefas', header_text)
 
         # Ela é convidada a inserir um item de tarefa imediatamente
 
         inputbox = self.browser.find_element_by_id('id_new_item')
         self.assertEqual(
             inputbox.get_attribute('placeholder'),
-            'Enter a to-do item'
+            'Adicione um item'
         )
 
         # Ela digita "Buy peacock featers" (Comprar penas de pavão)
@@ -63,7 +63,7 @@ class NewVsitorTest(LiveServerTestCase):
 
         inputbox.send_keys(Keys.ENTER)
         #time.sleep(1)
-        self.wait_for_row_in_list_table('1 Buy peacock featers Low')#('1: Buy peacock featers')
+        self.wait_for_row_in_list_table('1 Buy peacock featers Baixa')#('1: Buy peacock featers')
 
         # Ainda continua havendo uma caixa de texto convidando-a a
         # acrescentar outro item. Ela insere "Use peacock feathers
@@ -76,14 +76,14 @@ class NewVsitorTest(LiveServerTestCase):
 
         # A página é atualizada novamente e agora mostra os dois
         # itens em sua lista
-        self.wait_for_row_in_list_table('1 Buy peacock featers Low')#('1: Buy peacock featers')
-        self.wait_for_row_in_list_table('2 Use peacock feathers to make a fly Low')#('2: Use peacock feathers to make a fly')
+        self.wait_for_row_in_list_table('1 Buy peacock featers Baixa')#('1: Buy peacock featers')
+        self.wait_for_row_in_list_table('2 Use peacock feathers to make a fly Baixa')#('2: Use peacock feathers to make a fly')
 
         # Edith se pergunta se o site lembrará de sua lista. Então
         # ela nota que o site gerou um URL único para ela -- há um
         # pequeno texto explicativo para isso.
 
-        self.fail('Finish the test!')
+        #self.fail('Finish the test!')
 
         # Ela acessa essa URL -- sua lista de tarefas continua lá.
 

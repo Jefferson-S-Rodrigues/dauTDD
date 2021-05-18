@@ -37,18 +37,18 @@ class NewVsitorTest(LiveServerTestCase):
         # aceita definir prioridades nas tarefas do tipo baixa, média e alta
         # Ela decide verificar a homepage
         baixa = self.browser.find_element_by_xpath('//label[@for="baixa"]').text
-        self.assertIn('Low', baixa)
+        self.assertIn('Baixa', baixa)
         media = self.browser.find_element_by_xpath('//label[@for="media"]').text
-        self.assertIn('Average', media)
+        self.assertIn('Média', media)
         alta = self.browser.find_element_by_xpath('//label[@for="alta"]').text
-        self.assertIn('High', alta)
+        self.assertIn('Alta', alta)
 
         # Ela percebe que o título da página e o cabeçalho mencionam
         # listas de tarefas com prioridade (priority to-do)
 
-        self.assertIn('Priority To-Do', self.browser.title)
+        self.assertIn('Lista de Tarefas com Prioridades', self.browser.title)
         header_text = self.browser.find_element_by_tag_name('h1').text
-        self.assertIn('Priority To-Do', header_text)
+        self.assertIn('Lista de Tarefas com Prioridades', header_text)
 
         # Ela é convidada a inserir um item de tarefa e a prioridade da
         # mesma imediatamente
@@ -66,7 +66,7 @@ class NewVsitorTest(LiveServerTestCase):
         # como um item em uma lista de tarefas
 
         inputbox.send_keys(Keys.ENTER)
-        self.wait_for_row_in_list_table('1 Comprar anzol High')
+        self.wait_for_row_in_list_table('1 Comprar anzol Alta')
 
         # Ainda continua havendo uma caixa de texto convidando-a a
         # acrescentar outro item. Ela insere "Comprar cola instantâne"
@@ -84,8 +84,8 @@ class NewVsitorTest(LiveServerTestCase):
         # A página é atualizada novamente e agora mostra os dois
         # itens em sua lista e as respectivas prioridades
 
-        self.wait_for_row_in_list_table('1 Comprar anzol High')
-        self.wait_for_row_in_list_table('2 Comprar cola instantânea Low')
+        self.wait_for_row_in_list_table('1 Comprar anzol Alta')
+        self.wait_for_row_in_list_table('2 Comprar cola instantânea Baixa')
 
         # Edith se pergunta se o site lembrará de sua lista. Então
         # ela nota que o site gerou um URL único para ela -- há um
@@ -100,7 +100,7 @@ class NewVsitorTest(LiveServerTestCase):
         self.browser = webdriver.Firefox()
         self.browser.get('/'.join([self.live_server_url, edith_id]))
 
-        self.wait_for_row_in_list_table('1 Comprar anzol High')
-        self.wait_for_row_in_list_table('2 Comprar cola instantânea Low')
+        self.wait_for_row_in_list_table('1 Comprar anzol Alta')
+        self.wait_for_row_in_list_table('2 Comprar cola instantânea Baixa')
 
         ################################# FIM ####################################
